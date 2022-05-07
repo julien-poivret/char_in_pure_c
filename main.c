@@ -53,7 +53,7 @@ int main(int argc,char** argv){
         // with memory heap allocation and initialization at zero.
         char* buf  = calloc(6,sizeof(char));
         my_string_cpy("Bizon",buf,5);
-	printf("-->\33[31m%s\33[0m\n",buf);
+	printf("\33[31m-->%s\33[0m\n",buf);
         free(buf); // free the ram
 
 }
