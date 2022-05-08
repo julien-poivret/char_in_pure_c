@@ -2,7 +2,7 @@
 #include<stdlib.h> 
 #include<stdint.h> 
 
-/*Function protype for compiler*/
+/* Function protype for compiler */
 void my_string_cpy(char* input_txt, char* memory,int len);
 
 int main(int argc,char** argv){
@@ -12,15 +12,15 @@ int main(int argc,char** argv){
 	   as reminder when you don't code every days.
 	 */
 
-	char buffer[9] = {0}; //init the 9 bytes at zero
+	char buffer[9] = {0}; //Init the 9 bytes at zero
 	uint8_t i = 0;
-	while(i<9){ // write the stack memory.
+	while(i<9){ // Write the stack memory.
 		*(buffer+i) = '-'; 
 		i++;
 	}
 	printf("%s\n",buffer);
 
-	char buffer_type2[8][20]={0};// init every thing at zero.
+	char buffer_type2[8][20]={0};// Init every thing at zero.
 
 	/* Set char or string to copy from as source exemple memory */
 	buffer_type2[2][4] = 'y';
@@ -40,7 +40,11 @@ int main(int argc,char** argv){
 		i++;
 		j++;
 	}
-
+        /* 
+          Every printf with "%s" will stop to write string on stdout (console) when a 0 (not a '0') will be reach in the buffer
+          that why each string should contain one more dedicated byte for holding the zero value ou 8 bits of memory space (1 bytes)
+          ( as a stop to write bytes for stdout ).
+        */
 	printf("\33[35m-->%c\n",buffer_type2[2][4]); // Print only one char
 	printf("\33[33m-->%s\n",buffer_type2[1]);// Print the whole string (ended by 0 see in gdb)
 	printf("\33[34m-->%s\n",buffer_type2[3]);
@@ -50,14 +54,14 @@ int main(int argc,char** argv){
         my_string_cpy("home_sweet_home_my_home",buffer3,24);// memory writing done.
 	printf("\33[32m-->%s\n",buffer3);
         
-        // With memory heap allocation and initialization at zero.
+        // With memory heap allocation (os space reservation on ram) and initialization to zero. with calloc
         char* buf  = calloc(6,sizeof(char));
         my_string_cpy("Bizon",buf,5); // "buf" heap pointer is then writed on a reserved space on the ram memory.
 	printf("\33[31m-->%s\33[0m\n",buf); //Check.
         free(buf); // Simply free the ram with a syscall to the unix OS.
 }
 
-/* Fill a memory chunk with bytes */
+/* Fill a memory chunk with input bytes */
 void my_string_cpy(char* input_txt, char* memory,int len){
 	int ct = 0;
 		while(ct<len){
