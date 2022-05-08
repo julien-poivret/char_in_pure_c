@@ -14,7 +14,7 @@ int main(int argc,char** argv){
 
 	char buffer[9] = {0}; //init the 9 bytes at zero
 	uint8_t i = 0;
-	while(i<8){
+	while(i<9){
 		*(buffer+i) = '-'; 
 		i++;
 	}
