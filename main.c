@@ -61,7 +61,12 @@ int main(int argc,char** argv){
         free(buf); // Simply free the ram with a syscall to the unix OS.
 }
 
-/* Fill a memory chunk with input bytes */
+/* 
+  Fill a memory chunk with input bytes 
+  as c is a power full and sharp language... the "len" value 
+  prevent the program to write outside the memory of the targeted memory on ram.
+  it's simple enougth and if its done no need of cumbersome additional mesures. 
+*/
 void my_string_cpy(char* input_txt, char* memory,int len){
 	int ct = 0;
 		while(ct<len){
