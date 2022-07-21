@@ -41,8 +41,8 @@ int main(int argc,char** argv){
 		j++;
 	}
         /* 
-          Every printf with "%s" will stop to write string on stdout (console) when a 0 (not a '0') will be reach in the buffer
-          that why each string should contain one more dedicated byte for holding the zero value ou 8 bits of memory space (1 bytes)
+          Every printf with "%s" will stop to write string on stdout (console) when a 0 (not a '0') will be rich in the buffer
+          that why each string should contain one more dedicated byte for holding the zero value or 8 bits of memory space (1 bytes)
           ( as a stop to write bytes for stdout ).
         */
 	printf("\33[35m-->%c\n",buffer_type2[2][4]); // Print only one char
@@ -63,9 +63,9 @@ int main(int argc,char** argv){
 
 /* 
   Fill a memory chunk with input bytes 
-  as c is a power full and sharp language... the "len" value 
+  as c is a powerful and sharp language... the "len" value 
   prevent the program to write outside the memory of the targeted memory on ram.
-  it's simple enougth and if its done no need of cumbersome additional mesures. 
+  it's simple enough, and if it's done, no need of cumbersome additional measures.
 */
 void my_string_cpy(char* input_txt, char* memory,int len){
 	int ct = 0;
